@@ -15,7 +15,7 @@ test_data = { 'user': { 'name':'tester', 'device':'Q9Q0L44G31ZCFI82', 'pin':'432
 class FotecTestCase(unittest.TestCase):
     
     def setUp(self):
-        fotec.app.config['DATABASE'] = os.path.join(fotec.app.root_path, 'fotec_test.db')
+        fotec.app.config['DATABASE'] = os.path.join(fotec.app.root_path, 'test.db')
         self.db_fd = open(fotec.app.config['DATABASE'], 'w')
         fotec.app.config['TESTING'] = True
         self.app = fotec.app.test_client()
