@@ -12,8 +12,9 @@ All failures return a json structure:
 
 * GET /card
 Query list of cards associated with a user.  Requires the following params:
-device - Device ID for user
-pin - Password for user
+  * device - Device ID for user
+  * pin - Password for user
+
 Returns a json structure:
   ```
 { "data": [ 
