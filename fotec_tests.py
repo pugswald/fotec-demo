@@ -34,6 +34,26 @@ class FotecTestCase(unittest.TestCase):
         rc = self.app.get('/card?device=%s&pin=%s'%(test_data['user']['device'],'badpinhere'))
         self.assertEqual(json.loads(rc.data),fotec.AUTH_FAILURE) # ID comes back so it may not match
 
+    def test_pay(self):
+        have_approval = False
+        have_tx_fail = False
+        while not have_approval or not have_tx_fail:
+            rc = self.app.post('/pay', data=dict(
+                device = test_data['user']['device'],
+                pin = test_data['user']['pin'],
+                card_id = 1,
+                amount = 42.13,
+                merchant = fotec.VALID_MERCHANTS[0]))
+            result = json.loads(rc.data)
+            if 'error' in result:
+                self.assertEqual(result,fotec.TRANSACTION_FAILURE)
+                have_tx_fail = True
+            else:
+                self.assertIn('approval',result.keys())
+                have_approval = True
+        # TODO: Test bad inputs
+ 
+
 if __name__ == '__main__':
     unittest.main()
         

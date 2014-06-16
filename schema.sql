@@ -1,7 +1,6 @@
 pragma foreign_keys=on;
 
 drop table if exists transactions;
-drop table if exists user_cards;
 drop table if exists cards;
 drop table if exists users;
 create table users (
@@ -20,8 +19,10 @@ create table cards (
 );
 create table transactions (
     id integer primary key autoincrement,
-    user_card integer references user_cards(id),
+    card_id integer references cards(id),
     merchant text not null,
-    amount real not null
+    amount real not null,
+    approval text not null,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
