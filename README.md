@@ -15,7 +15,7 @@ Query list of cards associated with a user.  Requires the following params:
 device - Device ID for user
 pin - Password for user
 Returns a json structure:
-```
+  ```
 { "data": [ 
   { 
     "bank" : "Bank Name",
@@ -37,9 +37,9 @@ card_id - Card id to use, returned by /card
 amount - Amount for transaction
 merchant - Merchant
 Returns a json string:
-```
+  ```
 { "approval" : "Approval string" }
-
+```
 ## Prerequisites for server
 
 * Python - flask, passlib
