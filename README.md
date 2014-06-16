@@ -31,11 +31,11 @@ Returns a json structure:
 
 * POST /pay
 Attempt to create a transaction using the following form data:
-device - Device ID for user
-pin - Password for user
-card_id - Card id to use, returned by /card
-amount - Amount for transaction
-merchant - Merchant
+ * device - Device ID for user
+ * pin - Password for user
+ * card_id - Card id to use, returned by /card
+ * amount - Amount for transaction
+ * merchant - Merchant  
 Returns a json string:
   ```
 { "approval" : "Approval string" }
