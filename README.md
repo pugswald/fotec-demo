@@ -10,11 +10,12 @@ All failures return a json structure:
 { "error" : "Reason for failure" }
 ```
 
-* GET /card
-Query list of cards associated with a user.  Requires the following params:
+* GET /card 
+  
+  Query list of cards associated with a user.  Requires the following params:
   * device - Device ID for user
   * pin - Password for user  
-Returns a json structure:
+ Returns a json structure:
   ```
 { "data": [ 
   { 
@@ -30,7 +31,8 @@ Returns a json structure:
 ```
 
 * POST /pay
-Attempt to create a transaction using the following form data:
+
+ Attempt to create a transaction using the following form data:
  * device - Device ID for user
  * pin - Password for user
  * card_id - Card id to use, returned by /card
